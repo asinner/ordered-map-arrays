@@ -3,6 +3,8 @@
 `ordered-map-arrays` is a type of ordered map where all values are by default
 stored in array for a given key.
 
+Ships with Typescript support.
+
 ## Usage
 
 **`.push(key: number, value: T)`**
