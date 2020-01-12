@@ -33,12 +33,11 @@ import OrderedMap from 'ordered-map-arrays';
 
 const map = new OrderedMap()
 map.push(1, 'foo')
-map.push(2, 'bar')
-map.push(3, 'baz')
-map.push(1, 'foobar')
+map.push(1, 'bar')
+map.push(1, 'baz')
 map.set(1, 'example')
 
-console.log(map.toArray()) // prints ['example', 'bar', 'baz']
+map.get(1) // returns ['example']
 ```
 
 **`.get(key: number): T[]`**
