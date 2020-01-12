@@ -9,6 +9,14 @@ export default class OrderedMapArray<T> {
         this.data = {}
     }
 
+    public clear() {
+        this.data = {}
+    }
+
+    public remove(key: number): void {
+        delete this.data[key]
+    }
+
     public get(key: number): T[] {
         return this.data[key]
     }
@@ -37,6 +45,32 @@ export default class OrderedMapArray<T> {
             return
         }
         this.data[key] = this.data[key].concat(values)
+    }
+
+    public first(): T | undefined {
+        const key = this.firstKey()
+        if (key === undefined) {
+            return
+        }
+        return this.data[key][0]
+    }
+
+    public last(): T | undefined {
+        const key = this.lastKey()
+        if (key === undefined) {
+            return
+        }
+        const values = this.data[key]
+        return values[values.length - 1]
+    }
+
+    public firstKey(): number | undefined {
+        return this.keys()[0]
+    }
+
+    public lastKey(): number | undefined {
+        const keys = this.keys()
+        return keys[keys.length - 1]
     }
 
     /**
